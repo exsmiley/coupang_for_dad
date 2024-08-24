@@ -18,15 +18,15 @@ def echo():
 def get_recipes():
     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch"
     querystring = {
-        "query": "side salad",
+        "query": "spicy curry",
         "diet": "vegetarian",
         "intolerances": "gluten",
         "includeIngredients": "cheese,nuts",
         "excludeIngredients": "eggs",
         "instructionsRequired": "true",
         "fillIngredients": "false",
-        "addRecipeInformation": "false",
-        "addRecipeInstructions": "false",
+        "addRecipeInformation": "true",
+        "addRecipeInstructions": "true",
         "addRecipeNutrition": "false",
         "maxReadyTime": "45",
         "ignorePantry": "true",
