@@ -1,6 +1,6 @@
 from openai import OpenAI
 import translate
-ai_api_key = "nono"
+ai_api_key = "na"
 client = OpenAI(api_key=ai_api_key)
 
 prompt = '''

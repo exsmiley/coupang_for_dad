@@ -54,8 +54,11 @@ def product_count():
 def extract_data_from_request(req):
     if req.method == "POST":
         content = request.get_json(silent=True)
-        content = content.replace("\n", " ")
-        jcontent = json.loads(content)
+        if type(content) == str:
+            content = content.replace("\n", " ")
+            jcontent = json.loads(content)
+        else:
+            jcontent = content
         data = extract_data(jcontent["message"])
         return data
     return None
