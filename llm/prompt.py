@@ -1,5 +1,5 @@
 from openai import OpenAI
-api_key = "sk-izAe7ZTbM-bZ6HsVMYuEgKz_h35KbnnTnCRWeAHOtMT3BlbkFJrOlbexDzr5WLH4zJlMUntw31X3YPvnjC6InzmFbjIA"
+api_key = "ASK FOR ME"
 
 client = OpenAI(api_key=api_key)
 
