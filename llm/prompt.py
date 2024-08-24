@@ -1,7 +1,7 @@
 from openai import OpenAI
-api_key = "ASK FOR ME"
-
-client = OpenAI(api_key=api_key)
+import translate
+ai_api_key = "na"
+client = OpenAI(api_key=ai_api_key)
 
 prompt = '''
 You are a data extractor trying to extract the key product that a customer is trying to order from their input statement. They could order more than one product. The data will follow the following syntax. 
@@ -117,8 +117,56 @@ output: pizza
 Prompt:
 '''
 
+prompt2 = '''
+You are trying to transform ingredient-quantity-related input statement into specific command(add,remove)s for adding or removing ALL of the ingredient. A small change should result in no change. Each output should be formatted as ingredient:command. If you don't need to add or remove something, the outputs should be 'None'. the input statement might want to change more than one ingredient. 
+Ensure that each ingredient is followed by  :remove or :add.
+
+input: {input}
+output: {comma seperatated list of ingredient:command}
+
+Examples:
+input: I don't need any onions.
+output: onion:remove
+
+input: Can you add some samjang?
+output: samjang:add
+
+input: Can you get me a burger and a side of fries? I am really hungry.
+output: burger:add, fries:add
+
+input: it would be great if I have Bibimbab
+output: Bibimbab:add
+
+input: I don't think I need Onion.
+output: Onion:remove
+
+input: Okay. I'll get all of them.
+output: None
+
+input: I only need two eggs.
+output: None
+
+input: Please get rid of one carrot.
+output: None
+
+input: Can I get one more green onion?
+output: None
+
+input: I'll get only one garlic.
+output: None
+
+input: Add one more cucumber, please.
+output: None
+
+input: I don't need potato.
+output: potato:remove
+
+Prompt:
+'''
+
 def extract_data(input_str):
-    # TODO handle translation.
+    input_str = translate.translate_data(input_str)
+    # print("translated string is", input_str)
     completion = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
@@ -134,11 +182,12 @@ def extract_data(input_str):
 
 
 def extract_change_data(input_str):
-    # TODO handle translation.
+    input_str = translate.translate_data(input_str)
+    # print("translated string is", input_str)
     completion = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": prompt},
+            {"role": "system", "content": prompt2},
             {
                 "role": "user",
                 "content": "input: " + input_str + "\noutput:"
@@ -147,7 +196,6 @@ def extract_change_data(input_str):
     )
 
     changes = completion.choices[0].message.content.split(",")
-
     split = [
         c.split(":") for c in changes
     ]
