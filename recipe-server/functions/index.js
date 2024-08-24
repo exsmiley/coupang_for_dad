@@ -34,7 +34,7 @@ app.get('/hello', (req, res) => {
 // Route to echo back the JSON data sent in the POST request
 app.get('/webhook', async (req, res) => {
 
-    const {keyword,type} = req.query;
+    const {keyword, type, ingredientId} = req.query;
     let data = {
         status: "ACTIVE",
         recipe: "",
@@ -43,24 +43,32 @@ app.get('/webhook', async (req, res) => {
 
     const prompt = keyword || "피자"; // 기본 프롬프트 설정
 
-    const response = await axios.post(
-        "https://api.openai.com/v1/chat/completions",
-        {
-            model: "gpt-4o-mini",
-            messages: [
-                { role: "system", content: "질문에 대한 답만 말해." },
-                { role: "user", content: `${prompt}를 영어로 변환해줘.` },
-            ],
-            max_tokens: 50, // 생성할 텍스트 길이
-        },
-    );
-
-    console.log(response.data.choices[0].message.content)
+    let response;
+    if(type == "food"){
+        response = await axios.post(
+            "https://api.openai.com/v1/chat/completions",
+            {
+                model: "gpt-4o-mini",
+                messages: [
+                    { role: "system", content: "질문에 대한 답만 말해." },
+                    { role: "user", content: `${prompt}를 영어로 변환해줘.` },
+                ],
+                max_tokens: 50, // 생성할 텍스트 길이
+            },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${process.env.OPEN_API}`,
+                },
+            }
+        );
+        value = response.data.choices[0].message.content
+    }
+    
 
     try {
         // 데이터 삽입
-        const value = response.data.choices[0].message.content
-        data.recipe = type == "food" ? await getRecipes(value) : getIngredients(value);
+        data.recipe = type == "food" ? await getRecipes(value) : await getIngredients(ingredientId);
         await database.ref('data').set(data);
         console.log('Data inserted successfully');
         res.status(200).send(data);
