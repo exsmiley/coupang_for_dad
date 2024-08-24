@@ -38,9 +38,9 @@ app.post('/echo', (req, res) => {
 // Route to fetch recipes from the Spoonacular API
 app.get('/get-recipes', async (req, res) => {
     const {keyword} = req.query;
-    const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=${keyword}`;
+    const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=${encodeURIComponent(keyword)}`;
     const querystring = {
-        query: "pizza",
+        // query: "pizza",
         // diet: "vegetarian",
         // intolerances: "gluten",
         // includeIngredients: "cheese,nuts",

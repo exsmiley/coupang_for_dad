@@ -13,10 +13,12 @@ function ProductList() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    useEffect(()=>{
-        handleOpen()
-    },[])
+    // useEffect(()=>{
+    //     handleOpen()
+    // },[])
     return (
+        <>
+        <h3>음식 추천</h3>
         <Grid container spacing={4} sx={{ mt: 4 }}>
          <ProductModal open={open} handleClose={handleClose} />
         {recipeList.map((product) => (
@@ -25,6 +27,7 @@ function ProductList() {
             </Grid>
         ))}
         </Grid>
+        </>
     );
 }
 

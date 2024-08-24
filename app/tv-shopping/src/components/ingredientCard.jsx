@@ -11,9 +11,11 @@ function IngredientCard({ product }) {
         alt={product.name}
       />
       <CardContent>
+        <a href='https://www.coupang.com/np/search?component=&q=%EC%84%A4%ED%83%95&channel=user' target='_blank'>
         <Typography gutterBottom variant="h7" component="div">
-          {product.title}
+          {product.name}
         </Typography>
+        </a>
       </CardContent>
     </Card>
   );

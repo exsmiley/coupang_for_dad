@@ -1,95 +1,125 @@
 import create from 'zustand';
 const initialData = [
-    {
-      "id": 637475,
-      "image": "https://img.spoonacular.com/recipes/637475-312x231.jpg",
-      "imageType": "jpg",
-      "likes": 0,
-      "missedIngredientCount": 2,
-      "title": "Chavrie Fresh Goat Cheese With Dried Cranberries and Walnuts",
-      "usedIngredientCount": 2
-    },
-    {
-      "id": 1098388,
-      "image": "https://img.spoonacular.com/recipes/1098388-312x231.jpg",
-      "imageType": "jpg",
-      "likes": 0,
-      "missedIngredientCount": 3,
-      "title": "Watermelon Salad with Feta, Walnut & Nigella Seeds",
-      "usedIngredientCount": 2
-    },
-    {
-      "id": 664912,
-      "image": "https://img.spoonacular.com/recipes/664912-312x231.jpg",
-      "imageType": "jpg",
-      "likes": 0,
-      "missedIngredientCount": 3,
-      "title": "Waldorf Salad With Fresh Goat Cheese",
-      "usedIngredientCount": 2
-    },
-    {
-      "id": 634848,
-      "image": "https://img.spoonacular.com/recipes/634848-312x231.jpg",
-      "imageType": "jpg",
-      "likes": 0,
-      "missedIngredientCount": 3,
-      "title": "Berries and Cream Yogurt Parfait",
-      "usedIngredientCount": 2
-    },
-    {
-      "id": 642406,
-      "image": "https://img.spoonacular.com/recipes/642406-312x231.jpg",
-      "imageType": "jpg",
-      "likes": 0,
-      "missedIngredientCount": 4,
-      "title": "Endive Appetizer With Blue Cheese, Dried Cranberries and Walnuts",
-      "usedIngredientCount": 2
-    },
-    {
-      "id": 635297,
-      "image": "https://img.spoonacular.com/recipes/635297-312x231.jpg",
-      "imageType": "jpg",
-      "likes": 0,
-      "missedIngredientCount": 5,
-      "title": "Bleu Cheese Stuffed Wine Cherries With Honeycomb",
-      "usedIngredientCount": 2
-    },
-    {
-      "id": 716410,
-      "image": "https://img.spoonacular.com/recipes/716410-312x231.jpg",
-      "imageType": "jpg",
-      "likes": 0,
-      "missedIngredientCount": 5,
-      "title": "Cannoli Ice Cream w. Pistachios & Dark Chocolate",
-      "usedIngredientCount": 2
-    },
-    {
-      "id": 655438,
-      "image": "https://img.spoonacular.com/recipes/655438-312x231.jpg",
-      "imageType": "jpg",
-      "likes": 0,
-      "missedIngredientCount": 6,
-      "title": "Pear Salad With Walnuts and Blue Cheese",
-      "usedIngredientCount": 2
-    },
-    {
-      "id": 644108,
-      "image": "https://img.spoonacular.com/recipes/644108-312x231.jpg",
-      "imageType": "jpg",
-      "likes": 0,
-      "missedIngredientCount": 6,
-      "title": "Fusilli With Zucchini Flowers, Ricotta and Saffron",
-      "usedIngredientCount": 2
-    },
-    {
-      "id": 640508,
-      "image": "https://img.spoonacular.com/recipes/640508-312x231.jpg",
-      "imageType": "jpg",
-      "likes": 0,
-      "missedIngredientCount": 6,
-      "title": "Cream Cheese Stuffed Baby Bell Pepper Appetizer",
-      "usedIngredientCount": 2
-    }
+  {
+    "id": 665769,
+    "title": "Zucchini Pizza Boats",
+    "image": "https://img.spoonacular.com/recipes/665769-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 662264,
+    "title": "summer vegetable pizza",
+    "image": "https://img.spoonacular.com/recipes/662264-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 642371,
+    "title": "Elk Italian Sausage Pizza With Ricotta Cheese, Sautéd Mushrooms and Onion",
+    "image": "https://img.spoonacular.com/recipes/642371-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 651624,
+    "title": "Mexican Fiesta Salad Pizza",
+    "image": "https://img.spoonacular.com/recipes/651624-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 632771,
+    "title": "Artichoke, Kalamata, & Sun-Dried Tomato Mini-Pizzas With Garlic and Rosemary",
+    "image": "https://img.spoonacular.com/recipes/632771-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 680975,
+    "title": "BLT Pizza",
+    "image": "https://img.spoonacular.com/recipes/680975-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 663553,
+    "title": "Tomato and Bacon Pizza With Rice Crust",
+    "image": "https://img.spoonacular.com/recipes/663553-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 652592,
+    "title": "Multigrain Tandoori Pizza With Paneer Tikka",
+    "image": "https://img.spoonacular.com/recipes/652592-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 715495,
+    "title": "Turkey Tomato Cheese Pizza",
+    "image": "https://img.spoonacular.com/recipes/715495-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 1095810,
+    "title": "Buffalo Mozzarella & Pepperoni Pizza with a Cauliflower Crust",
+    "image": "https://img.spoonacular.com/recipes/1095810-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 647124,
+    "title": "Homemade Thin Crust Pizza + Pesto + Potato",
+    "image": "https://img.spoonacular.com/recipes/647124-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 654523,
+    "title": "Paneer & Fig Pizza",
+    "image": "https://img.spoonacular.com/recipes/654523-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 663366,
+    "title": "Thin Crust Genoa Salami Pizza",
+    "image": "https://img.spoonacular.com/recipes/663366-312x231.png",
+    "imageType": "png"
+  },
+  {
+    "id": 636593,
+    "title": "Butternut Squash Pizza",
+    "image": "https://img.spoonacular.com/recipes/636593-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 655847,
+    "title": "Pesto Veggie Pizza",
+    "image": "https://img.spoonacular.com/recipes/655847-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 662605,
+    "title": "Sweet Potato, Sausage and Caramelized Onion Pizza",
+    "image": "https://img.spoonacular.com/recipes/662605-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 644953,
+    "title": "Goat Cheese Pesto Pizza",
+    "image": "https://img.spoonacular.com/recipes/644953-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 651956,
+    "title": "Mini eggplant pizza",
+    "image": "https://img.spoonacular.com/recipes/651956-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 637434,
+    "title": "Chanterelle and Mangalitsa Speck Pizza",
+    "image": "https://img.spoonacular.com/recipes/637434-312x231.jpg",
+    "imageType": "jpg"
+  },
+  {
+    "id": 716300,
+    "title": "Plantain Pizza",
+    "image": "https://img.spoonacular.com/recipes/716300-312x231.jpg",
+    "imageType": "jpg"
+  }
 ];
 
 

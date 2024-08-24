@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
-
+import { Link } from 'react-router-dom';
 function ProductCard({ product }) {
   return (
+    <Link to="/ingre">
     <Card>
       <CardMedia
         component="img"
@@ -16,6 +17,7 @@ function ProductCard({ product }) {
         </Typography>
       </CardContent>
     </Card>
+    </Link>
   );
 }
 
