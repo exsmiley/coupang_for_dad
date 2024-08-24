@@ -30,8 +30,17 @@ Want food delivered to your doorstep at dawn tomorrow? No app needed. Just give 
 - :computer: __Back-End__
 
   - Language
-    - ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white)
+    - <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
 
   - Framework / Library
     - <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white">
+    - <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white">
+
+  - Database
+    - <img src="https://img.shields.io/badge/Firebase_Realtime_DB-FFCA28?style=for-the-badge&logo=firebase&logoColor=black">
+
+  - API
+    - <img src="https://img.shields.io/badge/pixabayapi-0288D1?style=for-the-badge&logo=photoshop&logoColor=white" alt="pixabayapi badge"> 
+    - <img src="https://img.shields.io/badge/Blend.ai_API-000000?style=for-the-badge&logo=blend&logoColor=white" alt="Blend.ai API badge"> 
+    - <img src="https://img.shields.io/badge/Rapid_Food_Recipe_API-FF5722?style=for-the-badge&logo=food&logoColor=white" alt="Rapid Food Recipe API badge">
 
