@@ -12,7 +12,7 @@ Want food delivered to your doorstep at dawn tomorrow? No app needed. Just give 
 24.08.24 - 24.08.25 
     
 ## Project Arcitecture
-<img width="683" alt="스크린샷 2024-08-24 오후 9 43 35" src="https://github.com/user-attachments/assets/4cd4f591-bdd5-4749-baca-155012cdf81f">
+<img width="667" alt="스크린샷 2024-08-25 오전 7 49 27" src="https://github.com/user-attachments/assets/968a92b7-88ef-47c9-ae3f-e6d5ac52b2c8">
 
 ## Workflow
 <img width="1073" alt="스크린샷 2024-08-24 오후 9 43 21" src="https://github.com/user-attachments/assets/9ec88f04-93ca-4d0d-a8af-6ec676b15af4">
