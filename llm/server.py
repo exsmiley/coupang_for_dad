@@ -40,10 +40,10 @@ def ingredients():
 @app.route("/count", methods=["GET", "POST"])
 def product_count():
     print("I was called (count)")
-    changes = extract_data_from_request(request)
-    print(changes)
+    changes = extract_change_data_from_request(request)
     if len(changes) > 0:
         # TODO do changes.
+        print(changes)
         pass
     return {
         "products": {
@@ -63,8 +63,11 @@ def extract_data_from_request(req):
 def extract_change_data_from_request(req):
     if req.method == "POST":
         content = request.get_json(silent=True)
-        content = content.replace("\n", " ")
-        jcontent = json.loads(content)
+        if type(content) == str:
+            content = content.replace("\n", " ")
+            jcontent = json.loads(content)
+        else:
+            jcontent = content
         changes = extract_change_data(jcontent["message"])
         return changes
     return []
