@@ -17,7 +17,7 @@ const style = {
   borderRadius: 5,
 };
 
-function ProductModal({ open, handleClose }) {
+function OderModal({ open, handleClose }) {
   return (
     <Modal
       open={open}
@@ -39,7 +39,7 @@ function ProductModal({ open, handleClose }) {
         >
             <Link to="/ingre">
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Typography variant="subtitle1">쿠팡으로 재료 주문</Typography>
+                <Typography variant="subtitle1">주문 하기</Typography>
                 <Box
                 component="img"
                 src={Coupang}
@@ -48,15 +48,6 @@ function ProductModal({ open, handleClose }) {
                 />
             </Box>
           </Link>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Typography variant="subtitle1">쿠팡 이츠로 음식 배달</Typography>
-            <Box
-              component="img"
-              src={CoupangEats}
-              alt="Coupang Eats"
-              sx={{ width: '100px', height: '100px', mt: 1, borderRadius:7 }}
-            />
-          </Box>
         </Box>
         {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           쿠팡으로 재료 주문
@@ -69,4 +60,4 @@ function ProductModal({ open, handleClose }) {
   );
 }
 
-export default ProductModal;
+export default OderModal;
