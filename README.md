@@ -44,6 +44,10 @@ Want food delivered to your doorstep at dawn tomorrow? No app needed. Just give 
     - <img src="https://img.shields.io/badge/Blend.ai_API-000000?style=for-the-badge&logo=blend&logoColor=white" alt="Blend.ai API badge"> 
     - <img src="https://img.shields.io/badge/Rapid_Food_Recipe_API-FF5722?style=for-the-badge&logo=food&logoColor=white" alt="Rapid Food Recipe API badge">
 
+## Running
+Run the flask server in the `llm` directory by running `python -m flask --app server run`.
+Next expose the local flask server using ngrok using `ngrok http http://127.0.0.1:5000 --domain=diverse-mint-burro.ngrok-free.app`. This will allow the local llm services to be accessible by the bland.ai pathway.
+
 ## How to Test
 Visit the [reset link](https://us-central1-hackseoul20241.cloudfunctions.net/api/reset) and reset the app.
 
