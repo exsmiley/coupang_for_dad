@@ -44,3 +44,10 @@ Want food delivered to your doorstep at dawn tomorrow? No app needed. Just give 
     - <img src="https://img.shields.io/badge/Blend.ai_API-000000?style=for-the-badge&logo=blend&logoColor=white" alt="Blend.ai API badge"> 
     - <img src="https://img.shields.io/badge/Rapid_Food_Recipe_API-FF5722?style=for-the-badge&logo=food&logoColor=white" alt="Rapid Food Recipe API badge">
 
+## How to Test
+Visit the [reset link](https://us-central1-hackseoul20241.cloudfunctions.net/api/reset) and reset the app.
+
+Visit our ["TV app"](https://hack06.vercel.app/) which is a mock of what a smart TV app could be when interacting with our service.
+
+Make a phone call to the US phone number +14156501485 and talk to the Coupang agent, with a specialty in Korean food, to order whatever you would like.
+
