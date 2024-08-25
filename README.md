@@ -12,7 +12,7 @@ Want food delivered to your doorstep at dawn tomorrow? No app needed. Just give 
 24.08.24 - 24.08.25 
     
 ## Project Arcitecture
-<img width="683" alt="스크린샷 2024-08-24 오후 9 43 35" src="https://github.com/user-attachments/assets/4cd4f591-bdd5-4749-baca-155012cdf81f">
+<img width="667" alt="스크린샷 2024-08-25 오전 7 49 27" src="https://github.com/user-attachments/assets/968a92b7-88ef-47c9-ae3f-e6d5ac52b2c8">
 
 ## Workflow
 <img width="1073" alt="스크린샷 2024-08-24 오후 9 43 21" src="https://github.com/user-attachments/assets/9ec88f04-93ca-4d0d-a8af-6ec676b15af4">
@@ -30,8 +30,24 @@ Want food delivered to your doorstep at dawn tomorrow? No app needed. Just give 
 - :computer: __Back-End__
 
   - Language
-    - ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white)
+    - <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
 
   - Framework / Library
     - <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white">
+    - <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white">
+
+  - Database
+    - <img src="https://img.shields.io/badge/Firebase_Realtime_DB-FFCA28?style=for-the-badge&logo=firebase&logoColor=black">
+
+  - API
+    - <img src="https://img.shields.io/badge/pixabayapi-0288D1?style=for-the-badge&logo=photoshop&logoColor=white" alt="pixabayapi badge"> 
+    - <img src="https://img.shields.io/badge/Blend.ai_API-000000?style=for-the-badge&logo=blend&logoColor=white" alt="Blend.ai API badge"> 
+    - <img src="https://img.shields.io/badge/Rapid_Food_Recipe_API-FF5722?style=for-the-badge&logo=food&logoColor=white" alt="Rapid Food Recipe API badge">
+
+## How to Test
+Visit the [reset link](https://us-central1-hackseoul20241.cloudfunctions.net/api/reset) and reset the app.
+
+Visit our ["TV app"](https://hack06.vercel.app/) which is a mock of what a smart TV app could be when interacting with our service.
+
+Make a phone call to the US phone number +14156501485 and talk to the Coupang agent, with a specialty in Korean food, to order whatever you would like.
 
