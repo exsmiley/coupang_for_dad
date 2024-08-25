@@ -78,6 +78,99 @@ app.get('/webhook', async (req, res) => {
     }
 });
 
+app.get('/ingredients', async (req, res) => {
+
+    let data = {
+        status: "INGREDIENT",
+    };
+
+    try {
+        await database.ref('data').update(data);
+        console.log('Data inserted successfully');
+        res.status(200).send(data);
+    } catch (error) {
+        console.error('Error inserting data:', error);
+        res.status(500).send('Error inserting data');
+    }
+});
+
+app.get('/confirm', async (req, res) => {
+
+    let data = {
+        status: "CONFIRM",
+    };
+    try {
+        await database.ref('data').update(data);
+        console.log('Data inserted successfully');
+        res.status(200).send(data);
+    } catch (error) {
+        console.error('Error inserting data:', error);
+        res.status(500).send('Error inserting data');
+    }
+});
+
+app.get('/reset', async (req, res) => {
+
+    let data = {
+        status: "INACTIVE",
+         recipe: "",
+        ingredients: ""
+    };
+
+    try {
+        await database.ref('data').update(data);
+        console.log('Data inserted successfully');
+        res.status(200).send(data);
+    } catch (error) {
+        console.error('Error inserting data:', error);
+        res.status(500).send('Error inserting data');
+    }
+});
+
+// Route to echo back the JSON data sent in the POST request
+app.get('/dish', async (req, res) => {
+
+    const {dish_id} = req.query;
+    const type = 'food';
+    console.log("dish_id >>> " + dish_id)
+    const korean_dishes = {
+        637440: "Chapchae (Korean Stir-Fried Noodles)",
+        649040: "Korean Chicken Stew",
+        649062: "Korean Perilla Pesto",
+        649030: "Korean Beef Rice Bowl",
+        644135: "Galbi Tang (Korean Beef Short Ribs Soup)",
+        649066: "Korean Potato Salad",
+        648975: "Kkaetnip Jangajji (Korean Pickled Perilla Leaves)",
+        641565: "Donkatsu - Korean Breaded Pork Cutlet",
+        634965: "Bibimbab (Korean Rice w Vegetables & Beef)",
+        648910: "Kimchi",
+        649029: "Korean Bibim Naengmyun (Instant Spicy Cold Noodles)",
+        649077: "Korean-Style Hamburg Steak w Tomato Gravy",
+        661117: "Spicy Korean Bbq Pork"
+    }
+
+    console.log(korean_dishes[dish_id])
+    const value = korean_dishes[dish_id]
+    let data = {
+        status: "ACTIVE",
+        recipe: "",
+        ingredients: ""
+    };
+
+    try {
+        // 데이터 삽입
+        data.recipe = await getRecipes(value);
+        data.ingredients = await getIngredients(dish_id);
+        await database.ref('data').set(data);
+        console.log('Data inserted successfully');
+        res.status(200).send(data);
+    } catch (error) {
+        console.error('Error inserting data:', error);
+        res.status(500).send('Error inserting data');
+    }
+});
+
+
 // Route to fetch recipes from the Spoonacular API
 app.get('/get-recipes', async (req, res) => {
     const {keyword} = req.query;

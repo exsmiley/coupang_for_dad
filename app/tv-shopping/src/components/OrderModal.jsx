@@ -39,7 +39,7 @@ function OderModal({ open, handleClose }) {
         >
             <Link to="/ingre">
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Typography variant="subtitle1">주문 하기</Typography>
+                <Typography variant="subtitle1">주문 완료</Typography>
                 <Box
                 component="img"
                 src={Coupang}
