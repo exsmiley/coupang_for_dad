@@ -1,6 +1,9 @@
 from openai import OpenAI
 import translate
-ai_api_key = "na"
+from string_sim import dish_and_id
+from glenn import send_dish_to_screen
+
+ai_api_key = "FILL ME OUT"
 client = OpenAI(api_key=ai_api_key)
 
 prompt = '''
@@ -165,25 +168,34 @@ Prompt:
 '''
 
 def extract_data(input_str):
-    input_str = translate.translate_data(input_str)
+    # input_str = translate.translate_data(input_str)
     # print("translated string is", input_str)
-    completion = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": prompt},
-            {
-                "role": "user",
-                "content": "input: " + input_str + "\noutput:"
-            }
-        ]
-    )
+    # completion = client.chat.completions.create(
+    #     model="gpt-4o-mini",
+    #     messages=[
+    #         {"role": "system", "content": prompt},
+    #         {
+    #             "role": "user",
+    #             "content": "input: " + input_str + "\noutput:"
+    #         }
+    #     ]
+    # )
 
-    return completion.choices[0].message.content
+    # dish = completion.choices[0].message.content
+    # if dish != "" and dish is not None:
+    #     dish_id, sim_dish = dish_and_id(dish)
+    #     print(dish_id, sim_dish)
+    #     if dish_id is not None:
+    #         print("sending", dish_id, sim_dish, "to screen")
+    #         send_dish_to_screen(dish_id)
+    #     return sim_dish
+    # return dish
+    closest_dish_by_prompt(input_str)
 
 
 def extract_change_data(input_str):
     input_str = translate.translate_data(input_str)
-    # print("translated string is", input_str)
+    print("translated string is", input_str)
     completion = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
@@ -202,3 +214,61 @@ def extract_change_data(input_str):
     return [
         s for s in split if len(s) > 1
     ]
+
+
+prompt3 = '''
+Out of the following list, return the ID and name of the most similar dish. If none or similar, return "NONE"
+637440: "잡채",
+649040: "닭죽",
+649062: "깻잎 페스토",
+649030: "소고기 볶음밥",
+644135: "갈비탕",
+649066: "감자샐러드",
+648975: "깻잎장아찌",
+641565: "돈까스",
+634965: "비빔밥",
+648910: "김치",
+649029: "비빔냉면",
+649077: "함박스테이크",
+661117: "매운 한국BBQ"
+
+Examples:
+input: 냉면
+output: 649029: "비빔냉면"
+
+input: 비비냉면
+output: 649029: "비빔냉면"
+
+input: 볶음면
+output: 637440: "잡채"
+
+input: 소고기밥
+output: 649030: "소고기 볶음밥"
+
+input: 네
+output: none
+
+Prompt:
+'''
+
+def closest_dish_by_prompt(input_str):
+    input_str = translate.translate_data(input_str)
+    print("translated string is", input_str)
+    completion = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": prompt3},
+            {
+                "role": "user",
+                "content": "input: " + input_str + "\noutput:"
+            }
+        ]
+    )
+
+    answers = completion.choices[0].message.content.strip().split()
+    # print(answers)
+    # answers.split()
+    print(answers)
+    if len(answers) > 0:
+        send_dish_to_screen(answers[0][:-1])
+    

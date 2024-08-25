@@ -1,6 +1,7 @@
 from flask import Flask, request
 import json
 from prompt import extract_data, extract_change_data
+from glenn import trigger_ingredients, finish_him, confirm_him
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ def hello_world():
 def main():
     print("I was called (/)")
     data = extract_data_from_request(request)
-    print(data)
+    print("START", data)
     return {
         "username": "bob",
         "theme": "super cool theme",
@@ -22,7 +23,7 @@ def main():
 def recipe():
     print("I was called (recipe)")
     data = extract_data_from_request(request)
-    print(data)
+    print("MAIN DISH", data)
     return {
         "options": "파인애플 피자\n치즈 피자\n고구마 피자",
     }
@@ -31,7 +32,8 @@ def recipe():
 def ingredients():
     print("I was called (ingredients)")
     data = extract_data_from_request(request)
-    print(data)
+    trigger_ingredients()
+    print("WITH INGREDIENTS", data)
     return {
         "ingredients": "토마토\n치즈\n빵",
         "recipe": "super cool recipe",
@@ -43,12 +45,30 @@ def product_count():
     changes = extract_change_data_from_request(request)
     if len(changes) > 0:
         # TODO do changes.
-        print(changes)
+        print("CHANGE", changes)
         pass
     return {
         "products": {
             "test": 1,
         },
+    }
+
+@app.route("/confirm", methods=["GET", "POST"])
+def confirm():
+    print("I was called (confirm)")
+    confirm_him()
+    return {
+        "username": "bob",
+        "theme": "super cool theme",
+    }
+
+@app.route("/done", methods=["GET", "POST"])
+def done():
+    print("I was called (done)")
+    finish_him()
+    return {
+        "username": "bob",
+        "theme": "super cool theme",
     }
 
 def extract_data_from_request(req):
