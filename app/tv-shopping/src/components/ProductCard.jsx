@@ -3,7 +3,6 @@ import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material'
 import { Link } from 'react-router-dom';
 import ProductModal from './ProductModal';
 function ProductCard({ product }) {
-
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => setOpen(true);
